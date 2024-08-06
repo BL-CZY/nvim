@@ -20,7 +20,7 @@ M.term = {
     row = 0.2,
     col = 0.25,
     width = 0.5,
-    height = 0.5,
+    height = 0.55,
     border = "single",
   },
 }
