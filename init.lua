@@ -14,6 +14,8 @@ if vim.g.neovide then
   vim.g.neovide_window_blurred = true
 end
 
+vim.lsp.inlay_hint.enable(true)
+
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
