@@ -1,5 +1,9 @@
-**This repo is supposed to used as config by NvChad users!**
+# HELLO!!!!!!!!!!!!
 
-- The main nvchad repo (NvChad/NvChad) is used as a plugin by this repo.
-- So you just import its modules , like `require "nvchad.options" , require "nvchad.mappings"`
-- So you can delete the .git from this repo ( when you clone it locally ) or fork it :)
+run ```:MasonInstallAll``` to install LSPs
+
+now have rust-analyzer, clangd, pyright, html, cssls, svelte, and tsserver
+
+if you want more syntax highlighting do ```:TSInstall {name}```
+
+it has vim-visual-multi with default keymap, btw
