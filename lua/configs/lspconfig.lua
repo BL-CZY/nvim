@@ -4,7 +4,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "rust_analyzer", "pyright", "clangd" }
+local servers = { "html", "cssls", "rust_analyzer", "pyright", "clangd", "svelte", "tsserver" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -30,5 +30,16 @@ lspconfig.rust_analyzer.setup {
         enable = true
       },
     },
+  },
+}
+
+lspconfig.tsserver.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    }
   },
 }

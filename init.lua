@@ -14,6 +14,11 @@ if vim.g.neovide then
   vim.g.neovide_window_blurred = true
 end
 
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+
 vim.lsp.inlay_hint.enable(true)
 
 vim.opt.rtp:prepend(lazypath)
