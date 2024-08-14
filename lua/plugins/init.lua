@@ -65,6 +65,15 @@ return {
     end
   },
 
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+
+  {
+    "brenoprata10/nvim-highlight-colors",
+  },
+
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
