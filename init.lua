@@ -18,6 +18,7 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
+vim.opt.wrap = false
 
 vim.lsp.inlay_hint.enable(true)
 
@@ -26,6 +27,14 @@ vim.opt.rtp:prepend(lazypath)
 local lazy_config = require "configs.lazy"
 
 vim.opt.termguicolors = true
+
+vim.filetype.add {
+  pattern = { [".*/hyprland%.conf"] = "hyprlang" },
+}
+
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
 
 -- load plugins
 require("lazy").setup({
@@ -42,11 +51,11 @@ require("lazy").setup({
   { import = "plugins" },
 }, lazy_config)
 
-require('nvim-highlight-colors').setup({
-  render = 'background',
-})
+require("nvim-highlight-colors").setup {
+  render = "background",
+}
 
-require("todo-comments").setup({})
+require("todo-comments").setup {}
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
