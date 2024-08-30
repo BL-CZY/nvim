@@ -29,7 +29,7 @@ local lazy_config = require "configs.lazy"
 vim.opt.termguicolors = true
 
 vim.filetype.add {
-  pattern = { [".*/hyprland%.conf"] = "hyprlang" },
+  pattern = { [".*/hyprland%.conf"] = "hyprlang", [".*/hyprlock%.conf"] = "hyprlang" },
 }
 
 vim.opt.foldmethod = "indent"
