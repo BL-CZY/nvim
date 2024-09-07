@@ -63,6 +63,8 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "nvchad.autocmds"
 
+require'lspconfig'.glsl_analyzer.setup{}
+
 vim.schedule(function()
   require "mappings"
 end)
