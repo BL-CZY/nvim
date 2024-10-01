@@ -14,10 +14,6 @@ if vim.g.neovide then
   vim.g.neovide_window_blurred = true
 end
 
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
 vim.opt.wrap = false
 
 vim.lsp.inlay_hint.enable(true)
@@ -62,8 +58,6 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require "nvchad.autocmds"
-
-require'lspconfig'.glsl_analyzer.setup{}
 
 vim.schedule(function()
   require "mappings"

@@ -92,7 +92,13 @@ return {
           'stevearc/dressing.nvim', -- optional for vim.ui.select
       },
       config = true,
-  }
+  },
+
+  {
+     'barrett-ruth/live-server.nvim',
+     config = true,
+     lazy = false,
+  },
 
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
