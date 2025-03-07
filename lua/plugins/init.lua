@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -11,14 +11,6 @@ return {
     config = function()
       require "configs.lspconfig"
     end,
-  },
-
-  {
-    "rust-lang/rust.vim",
-    ft = "rust",
-    init = function ()
-      vim.g.rustfmt_autosave = 1
-    end
   },
 
   {
@@ -43,31 +35,26 @@ return {
     -- setting the keybinding for LazyGit with 'keys' is recommended in
     -- order to load the plugin when the command is run for the first time
     keys = {
-      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-    }
+      { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+    },
   },
 
   -- eslint thorws errors, so ill comment it here
   {
     "mfussenegger/nvim-lint",
     event = "VeryLazy",
-    config = function ()
-      require('lint').linters_by_ft = {
-        javascript = {'eslint'},
-        typescript = {'eslint'},
+    config = function()
+      require("lint").linters_by_ft = {
+        javascript = { "eslint" },
+        -- typescript = { "eslint" },
       }
 
-      -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        -- callback = function ()
-          -- require('lint').try_lint();
-        -- end
-      -- })
-    end
-  },
-
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
+    end,
   },
 
   {
@@ -85,28 +72,46 @@ return {
   },
 
   {
-      'akinsho/flutter-tools.nvim',
-      lazy = false,
-      dependencies = {
-          'nvim-lua/plenary.nvim',
-          'stevearc/dressing.nvim', -- optional for vim.ui.select
-      },
-      config = true,
+    "akinsho/flutter-tools.nvim",
+    lazy = false,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim", -- optional for vim.ui.select
+    },
+    config = true,
   },
 
   {
-     'barrett-ruth/live-server.nvim',
-     config = true,
-     lazy = false,
+    "barrett-ruth/live-server.nvim",
+    config = true,
+    lazy = false,
   },
 
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  { "nvchad/volt", lazy = true },
+
+  {
+    "nvchad/minty",
+    cmd = { "Shades", "Huefy" },
+  },
+
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    name = "tailwind-tools",
+    build = ":UpdateRemotePlugins",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-telescope/telescope.nvim", -- optional
+      "neovim/nvim-lspconfig", -- optional
+    },
+    opts = {}, -- your configuration
+  },
+
+  {
+    "MysticalDevil/inlay-hints.nvim",
+    event = "LspAttach",
+    dependencies = { "neovim/nvim-lspconfig" },
+    config = function()
+      require("inlay-hints").setup()
+    end,
+  },
 }

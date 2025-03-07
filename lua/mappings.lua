@@ -16,5 +16,8 @@ map("n", "fgr", ":lua vim.lsp.buf.rename()<cr>", { desc = "Flutter rename" })
 map("n", "fgR", ":lua vim.lsp.buf.references()<cr>", { desc = "Flutter references" })
 
 map("n", "<leader>O", ":! xdg-open .&<cr>", { desc = "Open in default file manager" })
+map("n", "<leader>ps", ":lua require('minty.shades').open()<cr>", { desc = "Open Shades Picker" })
+map("n", "<leader>ph", ":lua require('minty.huefy').open()<cr>", { desc = "Open Color Picker" })
+map("n", "<leader>w", ":close<cr>", { desc = "Close current window" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

@@ -9,11 +9,6 @@ if not vim.loop.fs_stat(lazypath) then
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
 
-if vim.g.neovide then
-  vim.g.neovide_transparency = 0.9
-  vim.g.neovide_window_blurred = true
-end
-
 vim.opt.wrap = false
 
 vim.lsp.inlay_hint.enable(true)
@@ -50,8 +45,6 @@ require("lazy").setup({
 require("nvim-highlight-colors").setup {
   render = "background",
 }
-
-require("todo-comments").setup {}
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
