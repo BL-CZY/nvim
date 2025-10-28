@@ -5,7 +5,7 @@ local lspconfig = require "lspconfig"
 
 -- EXAMPLE
 local servers =
-  { "html", "cssls", "rust_analyzer", "pyright", "clangd", "svelte", "ts_ls", "jsonls", "slint_lsp", "denols" }
+  { "html", "cssls", "rust_analyzer", "pyright", "clangd", "svelte", "ts_ls", "jsonls", "slint_lsp", "denols", "hls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -16,6 +16,7 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
+
 --
 -- configuring single server, example: typescript
 lspconfig.rust_analyzer.setup {
