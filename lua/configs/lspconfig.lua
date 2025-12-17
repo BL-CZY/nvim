@@ -1,7 +1,7 @@
 -- load defaults i.e lua_lsp
 require("nvchad.configs.lspconfig").defaults()
 
-local lspconfig = require "lspconfig"
+local lspconfig = vim.lsp
 
 -- EXAMPLE
 local servers =
@@ -9,19 +9,11 @@ local servers =
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
-end
+vim.lsp.enable(servers)
 
 --
 -- configuring single server, example: typescript
-lspconfig.rust_analyzer.setup {
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
+vim.lsp.config("rust_analyzer", {  
   capabilities = nvlsp.capabilities,
   settings = {
     ["rust-analyzer"] = {
@@ -33,19 +25,14 @@ lspconfig.rust_analyzer.setup {
       },
     },
   },
-}
+})
 
-lspconfig.ts_ls.setup {
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
-  single_file_support = false,
-  root_dir = lspconfig.util.root_pattern "package.json",
-}
+vim.lsp.config("ts_ls",  {
+  root_markers = "tsconfig.json"
+})
 
-lspconfig.denols.setup {
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
-  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+vim.lsp.config("denols",  {
+  root_markers = "deno.json",
   settings = {
     deno = {
       inlayHints = {
@@ -58,9 +45,9 @@ lspconfig.denols.setup {
       },
     },
   },
-}
+})
 
-lspconfig.clangd.setup {
+vim.lsp.config("clangd", {
   settings = {
     clangd = {
       InlayHints = {
@@ -72,4 +59,4 @@ lspconfig.clangd.setup {
       fallbackFlags = { "-std=c++20" },
     },
   },
-}
+})
