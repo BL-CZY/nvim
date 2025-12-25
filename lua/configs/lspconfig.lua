@@ -5,7 +5,7 @@ local lspconfig = vim.lsp
 
 -- EXAMPLE
 local servers =
-  { "html", "cssls", "rust_analyzer", "pyright", "clangd", "svelte", "ts_ls", "jsonls", "slint_lsp", "denols", "hls" }
+  { "html", "cssls", "rust_analyzer", "pyright", "clangd", "svelte", "ts_ls", "jsonls", "slint_lsp", "denols", "hls", "nixd", "lua_ls" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config

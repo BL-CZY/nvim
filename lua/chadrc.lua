@@ -6,6 +6,11 @@ local M = {}
 
 M.base46 = {
 	theme = "catppuccin",
+    -- changed_themes = {
+    --     catppuccin = {
+    --         base_16 = { base00 = "#11111b" },
+    --     }
+    -- }
 	-- hl_override = {
 	-- 	Comment = { italic = true },
 	-- 	["@comment"] = { italic = true },

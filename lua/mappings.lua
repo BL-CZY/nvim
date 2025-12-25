@@ -23,7 +23,7 @@ map("n", "<leader>w", ":close<cr>", { desc = "Close current window" })
 
 -- toggleable
 map({ "n", "t" }, "<D-i>", function()
-  require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
+    require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "terminal toggle floating term" })
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
